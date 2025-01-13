@@ -1,28 +1,31 @@
 import { useEffect, useState } from "react";
-import { data } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 export default function IndexMoviesPage() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-
-    const url = "http://localhost:3001/api/movies"
+    const url = import.meta.env.VITE_BACKEND_URL + "api/movies";
 
     fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
-        
-        setMovies(data.movies)
-    });
-  },[]);
+      .then((res) => res.json())
+      .then((data) => {
+        setMovies(data.movies);
+      });
+  }, []);
 
   return (
     <>
-    <div className="container">
-    <h1>Movie List</h1>
+      <div className="container">
+        <h1>Movie List</h1>
 
-    {movies.map(movie => <li>{movie.title}</li>)}
-    </div>
+        {movies.map((movie) => (
+          <li key={movie.id}>
+            <Link to={'/movies/' + movie.id}>{movie.title}</Link>
+          </li>
+        ))}
+      </div>
     </>
   );
 }

@@ -4,6 +4,7 @@ import HomePage from "./pages/Homepage";
 import Aboutpage from "./pages/AboutPage";
 import DefaultLayout from "./layouts/DefaultLayout";
 import IndexMoviesPage from "./pages/movies/IndexMoviesPage";
+import ShowMoviesPage from "./pages/movies/ShowMoviesPage";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         {/* movies pages */}
         <Route path="movies">
           <Route index element={<IndexMoviesPage/>}/>
+          <Route path=":id" element={<ShowMoviesPage/>}/>
         </Route>
         </Route>
       </Routes>
