@@ -33,6 +33,11 @@ export default function Header() {
                   About
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/movies">
+                  Movies
+                </Link>
+              </li>
               
               
             </ul>
