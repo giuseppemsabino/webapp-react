@@ -11,9 +11,8 @@ export default function IndexMoviesPage() {
     fetch(url)
     .then((res) => res.json())
     .then((data) => {
-        console.log(data);
         
-        // setMovies(data)
+        setMovies(data.movies)
     });
   },[]);
 
@@ -22,7 +21,7 @@ export default function IndexMoviesPage() {
     <div className="container">
     <h1>Movie List</h1>
 
-    {movies}
+    {movies.map(movie => <li>{movie.title}</li>)}
     </div>
     </>
   );
